@@ -1,0 +1,311 @@
+/* Geral */
+:root {
+  --fundo-principal: #121212;
+  --button-colors: #292929;
+  --cartao-tarefa: #1c1c1c;
+  --botao-principal: #5a5a5a;
+  --texto-principal: #e0e0e0;
+  --borda: #5c5c5c;
+  --prioridade-alta: #d32f2f;
+  --button-hover: #2c6b4f;
+  --tarefa-concluida:#0E3A2D;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Afacad", sans-serif;
+}
+
+html {
+  height: 100vh;
+}
+
+p,
+h1,
+h3,
+h4 {
+  color: var(--texto-principal);
+}
+
+button i{
+  pointer-events: none;
+}
+
+#post,
+#cancel-edit-btn,
+#edit {
+  background: #fff;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  width: 120px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skew(-21deg);
+}
+
+span {
+  display: inline-block;
+  transform: skew(21deg);
+}
+
+#post::before,
+#cancel-edit-btn::before,
+#edit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: var(--botao-principal);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+#post:hover,
+#cancel-edit-btn:hover,
+#edit:hover {
+  color: #fff;
+}
+
+#post:hover::before,
+#cancel-edit-btn:hover::before,
+#edit:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+body {
+  background-color: var(--fundo-principal);
+}
+
+input,
+select {
+  padding: 0.5rem 1rem;
+  outline: none;
+}
+
+.hide {
+  display: none;
+}
+
+/* to do container */
+.todo-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  background-color: var(--cartao-tarefa);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.todo-container header {
+  text-align: center;
+  padding: 0 1rem 1rem;
+}
+
+/* To do form */
+
+#todo-form,
+#edit-form {
+  padding: 1rem;
+  border-bottom: 1px solid var(--borda);
+}
+
+#todo-form p,
+#edit-form p {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-control input {
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.8rem;
+}
+
+.form-control textarea {
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  padding: .3rem;
+  resize: none;
+}
+
+.form-control textarea::placeholder{
+  padding-left: 15px;
+  padding-top: 10px;
+
+}
+
+#edit-form .buttons {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  justify-content: space-around;
+}
+
+#edit-form .buttons #cancel-edit-btn::before {
+  background-color: var(--prioridade-alta);
+}
+
+/* toolbar */
+
+#toolbar {
+  padding: 1rem;
+  border-bottom: 1px solid var(--borda);
+  display: flex;
+}
+
+#toolbar h4 {
+  margin-bottom: 0.5rem;
+}
+
+#search {
+  border-right: 1px solid var(--borda);
+  padding-right: 1rem;
+  margin-right: 1rem;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+#search form {
+  display: flex;
+  gap: 10px;
+}
+
+#search input {
+  width: 100%;
+}
+
+#search #erase-button {
+  background-color: var(--button-colors);
+  color: var(--texto-principal);
+  padding: 0.25rem 0.5rem;
+  transition: 0.3s ease;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  margin-right: 0.3rem;
+  border-radius: 4px; 
+}
+
+#search #erase-button:hover {
+  background-color: var(--prioridade-alta);
+  color: var(--texto-principal);
+}
+
+#filter {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+#filter select {
+  flex: 1;
+}
+
+/* To do list */
+
+.todo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--borda);
+  transition: 0.5s all;
+}
+
+
+
+.todo .button {
+  margin-left: 0.4rem;
+}
+
+.done {
+  background-color: var(--tarefa-concluida);
+}
+
+.done h3,
+.done p {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+
+.todo .text-content{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+.todo .text-content p{
+  margin-top: .5rem;
+  margin-right: 1rem;
+  font-size: 1rem;
+  line-height: 1.3;
+  text-align: justify;
+}
+
+.finish-todo,
+.edit-todo,
+.remove-todo {
+  background-color: var(--button-colors);
+  color: var(--texto-principal);
+  padding: 0.25rem 0.5rem;
+  transition: 0.3s ease;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  margin-right: 0.3rem;
+  border-radius: 4px;
+}
+
+.finish-todo:hover,
+.edit-todo:hover,
+.remove-todo:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.remove-todo:hover {
+  background-color: var(--prioridade-alta);
+}
+
+
+@media (max-width: 450px){
+  .todo-container{
+    width: 400px;
+  }
+}
+
+@media (max-width: 375px){
+  .todo-container{
+    width: 350px;
+  }
+}
+
+@media (max-width: 325px){
+  .todo-container{
+    width: 300px;
+  }
+  #search {
+    padding-right: 0;
+  }
+}
+

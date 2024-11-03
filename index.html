@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Afacad:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Manrope:wght@200..800&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="js/scripts.js" defer></script>
+  </head>
+  <body>
+    <div class="todo-container">
+      <header>
+        <h1>Lista de Tarefas</h1>
+      </header>
+
+      <form id="todo-form">
+        <p>Adicione sua tarefa:</p>
+        <div class="form-control">
+          <input
+            type="text"
+            id="todo-input"
+            placeholder="O que você vai fazer?"
+          />
+          <textarea
+            id="description"
+            placeholder="Descreva sua tarefa"
+          ></textarea>
+          <button id="post">
+            <span>Postar</span>
+          </button>
+        </div>
+      </form>
+
+      <form id="edit-form" class="hide">
+        <p>Edite a sua tarefa:</p>
+        <div class="form-control">
+          <input type="text" id="edit-input" />
+          <textarea id="edit-description"></textarea>
+        </div>
+        <div class="buttons">
+          <button id="cancel-edit-btn">
+            <span>Cancelar</span>
+          </button>
+          <button id="edit">
+            <span>Editar</span>
+          </button>
+        </div>
+      </form>
+
+      <div id="toolbar">
+        <div id="search">
+          <h4>Pesquisar</h4>
+          <form>
+            <input type="text" id="search-input" placeholder="Pesquise sua tarefa" />
+            <button id="erase-button">
+              <i class="fa-solid fa-delete-left"></i>
+            </button>
+          </form>
+        </div>
+
+        <div id="filter">
+          <h4>Filtrar:</h4>
+          <select id="filter-select">
+            <option value="all">Todos</option>
+            <option value="done">Feitas</option>
+            <option value="todo">A fazer</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="todo-list">
+      
+      </div>
+    </div>
+  </body>
+</html>
