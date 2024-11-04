@@ -18,5 +18,5 @@ Um aplicativo de lista de tarefas simples, desenvolvido em JavaScript, HTML e CS
 - JavaScript
 
 ### Como usar: 
-##Utilize no link abaixo :
+#### Utilize no link abaixo :
 https://to-do-gold-two.vercel.app/
