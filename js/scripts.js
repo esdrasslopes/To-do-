@@ -68,7 +68,6 @@ const savetodo = (title, text, done = 0, save = 1) => {
   });
 
   todoInput.focus();
-  description.focus();
 };
 
 const toggleForms = () => {
@@ -155,8 +154,6 @@ todoForm.addEventListener("submit", (e) => {
   if (inputValue || descriptionValue) {
     savetodo(inputValue, descriptionValue);
   }
-
-  getTodoLocalStorage();
 });
 
 document.addEventListener("click", (e) => {
@@ -217,8 +214,8 @@ eraseBtn.addEventListener("click", (e) => {
 });
 
 filterBtn.addEventListener("change", (e) => {
-  const filterBtn = e.target.value;
-  filterTodos(filterBtn);
+  const filterValue = e.target.value;
+  filterTodos(filterValue);
 });
 
 // Local Storage
@@ -247,7 +244,7 @@ const removeTodoLocalStorage = (todoTitle, TodoText) => {
   const todos = getTodoLocalStorage();
 
   const filterTodos = todos.filter(
-    (todo) => todo.title != todoTitle || todo.text != TodoText
+    (todo) => todo.title != todoTitle && todo.text != TodoText
   );
 
   localStorage.setItem("todos", JSON.stringify(filterTodos));
