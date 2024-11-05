@@ -268,14 +268,13 @@ const updateeditTodoLocalStorage = (
   TodoNewTitle,
   TodoNewText
 ) => {
+  
   const todos = getTodoLocalStorage();
-
-  todos.map((todo) => {
+  todos.forEach((todo) => {
     if (todo.title === TodoOldTitle && todo.text === TodoOldtext) {
       todo.title = TodoNewTitle;
       todo.text = TodoNewText;
     }
-    return todo;
   });
 
   localStorage.setItem("todos", JSON.stringify(todos));
